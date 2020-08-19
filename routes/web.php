@@ -28,8 +28,10 @@ use Illuminate\Support\Facades\Route;
 
 // }
 
-Route::get('/', function () {
+Route::get('/', 'PageController@index');
 
-    // return view('welcome');
+Route::get('/page/{id}', 'PageController@page')->name('page');
 
-});
+Route::get('/contactus', 'ContactController@index')->name('contactus');
+
+Route::post('/contactus/sendmessage', 'ContactController@sendmessage')->name('sendmessage');
